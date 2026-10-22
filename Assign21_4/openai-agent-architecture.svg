@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="790" viewBox="0 0 1200 790" role="img" aria-labelledby="title desc">
+  <title id="title">Enterprise internal support agent architecture</title>
+  <desc id="desc">Authenticated user requests flow through a support API and Agents SDK orchestrator to bounded knowledge, ITSM, and identity specialists. Tool calls pass a policy gateway, with sensitive mutations paused for human approval. Encrypted workflow state and observability span the system.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#425466"/>
+    </marker>
+    <style>
+      .box { fill:#f5f8fc; stroke:#315b82; stroke-width:2; rx:12; }
+      .core { fill:#e5f2ff; stroke:#1769aa; stroke-width:3; rx:14; }
+      .human { fill:#fff4dc; stroke:#aa6b00; stroke-width:2; rx:12; }
+      .state { fill:#eff8f2; stroke:#3c8054; stroke-width:2; rx:12; }
+      .text { font: 19px Arial, sans-serif; fill:#172b4d; text-anchor:middle; }
+      .small { font: 15px Arial, sans-serif; fill:#344563; text-anchor:middle; }
+      .line { fill:none; stroke:#425466; stroke-width:2.5; marker-end:url(#arrow); }
+      .dash { fill:none; stroke:#3c8054; stroke-width:2; stroke-dasharray:8 6; }
+    </style>
+  </defs>
+  <rect width="1200" height="790" fill="#ffffff"/>
+  <text x="600" y="42" class="text" style="font-size:26px;font-weight:bold">Enterprise internal support — reference architecture</text>
+
+  <rect x="435" y="75" width="330" height="72" class="box"/>
+  <text x="600" y="105" class="text">Employee • SSO</text>
+  <text x="600" y="129" class="small">Authenticated support UI</text>
+  <path d="M600 147V181" class="line"/>
+
+  <rect x="330" y="184" width="540" height="76" class="box"/>
+  <text x="600" y="215" class="text">Support API + policy boundary</text>
+  <text x="600" y="240" class="small">Identity • tenant scope • rate limits • input checks</text>
+  <path d="M600 260V296" class="line"/>
+
+  <rect x="290" y="300" width="620" height="86" class="core"/>
+  <text x="600" y="333" class="text" style="font-weight:bold">Triage &amp; orchestrator • Agents SDK</text>
+  <text x="600" y="361" class="small">Policy-aware routing • bounded steps • final-answer owner</text>
+
+  <path d="M480 386L225 430" class="line"/>
+  <path d="M600 386V430" class="line"/>
+  <path d="M720 386L975 430" class="line"/>
+
+  <rect x="65" y="434" width="320" height="84" class="box"/>
+  <text x="225" y="466" class="text">Knowledge specialist</text>
+  <text x="225" y="492" class="small">ACL-filtered retrieval • read-only</text>
+  <rect x="440" y="434" width="320" height="84" class="box"/>
+  <text x="600" y="466" class="text">ITSM specialist</text>
+  <text x="600" y="492" class="small">Ticket lookup • draft • scoped changes</text>
+  <rect x="815" y="434" width="320" height="84" class="box"/>
+  <text x="975" y="466" class="text">Identity specialist</text>
+  <text x="975" y="492" class="small">Diagnostics • gated recovery</text>
+
+  <path d="M225 518V555L475 582" class="line"/>
+  <path d="M600 518V574" class="line"/>
+  <path d="M975 518V555L725 582" class="line"/>
+  <rect x="375" y="580" width="450" height="76" class="core"/>
+  <text x="600" y="611" class="text">Policy + tool gateway</text>
+  <text x="600" y="636" class="small">Typed tools • authz • validation • idempotency</text>
+
+  <path d="M825 618H915" class="line"/>
+  <rect x="920" y="580" width="250" height="76" class="human"/>
+  <text x="1045" y="611" class="text">Approval queue</text>
+  <text x="1045" y="636" class="small">Authorized human • approve/reject</text>
+  <path d="M1045 656V696H825" class="line"/>
+  <text x="1020" y="689" class="small">resume saved run</text>
+
+  <rect x="45" y="690" width="470" height="66" class="state"/>
+  <text x="280" y="719" class="text">Encrypted workflow/session store</text>
+  <text x="280" y="741" class="small">Tenant-scoped state • approval • ownership</text>
+  <rect x="685" y="690" width="470" height="66" class="state"/>
+  <text x="920" y="719" class="text">Traces + audit + metrics</text>
+  <text x="920" y="741" class="small">Redaction • access controls • evaluations</text>
+  <path d="M515 724H680" class="dash"/>
+
+  <text x="600" y="779" class="small">Tools connect only to approved KB / ITSM / CMDB / IAM services using least-privilege credentials.</text>
+</svg>
